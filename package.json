@@ -1,0 +1,23 @@
+{
+  "name": "Lab-NODE6-CRUD-Operations-with-the-HTTP-REST-API",
+  "version": "1.0.0",
+  "description": "Assignment6",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/darshanpatil/Lab-NODE6-CRUD-Operations-with-the-HTTP-REST-API.git"
+  },
+  "author": "Darshan Patil <darshan.patil@mindstix.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/darshanpatil/Lab-NODE6-CRUD-Operations-with-the-HTTP-REST-API/issues"
+  },
+  "homepage": "https://github.com/darshanpatil/Lab-NODE6-CRUD-Operations-with-the-HTTP-REST-API",
+  "dependencies": {
+    "async": "^1.2.1",
+    "moment": "^2.10.3"
+  }
+}
