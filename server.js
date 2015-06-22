@@ -186,36 +186,74 @@ function handleRequest(req, res) {
 					
 				}
 			}
-			
-			/*async.parallel(
-				[function() {
-					if(jsonval.enrolledSubjects[0] != null) {
-						if(sub_1.subjectId == jsonval.enrolledSubjects[0].subjectId) {
-							
-						}
-					}
-				},
-				function() {
-					
-				},
-				function() {
-					
-				},
-				function() {
-					
-				}
-				],
-				function(err, result) {
-					
-				}
-			);*/
-			
 		}, 1000);
 		
 		console.log("[INFO] Method: 'POST' path: /api/student/{id} Complete");
 	} else if(req.method == 'DELETE' && pathName.indexOf('/api/student') != -1) {
 		console.log("[INFO] Method: 'DELETE' path: /api/student/{id}");
 		var delId = pathName.split('/')[3];
+		readFiles();
+		
+		setTimeout(function() {
+			var jsonval = studJSON;
+			var index = -1;
+			
+			for(var stud in jsonval.students) {
+				if(jsonval.students[stud].id == delId) {
+					index = stud;
+					//delete jsonval.students[stud];
+				}
+			}
+			jsonval.students.splice(index, 1);
+			
+			if(index == -1) {
+				res.writeHead(404);
+				res.end("No student found !!!");
+				return;
+			}
+			//jsonval.students.splice(index, 1);
+			
+			for(var stud in sub_1.enrolledStudents) {
+				if(sub_1.enrolledStudents[stud].id == delId) {
+					index = stud;
+					//delete sub_1.enrolledStudents[stud];
+				}
+			}
+			sub_1.enrolledStudents.splice(index, 1);
+			
+			for(var stud in sub_2.enrolledStudents) {
+				if(sub_2.enrolledStudents[stud].id == delId) {
+					index = stud;
+					//delete sub_2.enrolledStudents[stud];
+				}
+			}
+			sub_2.enrolledStudents.splice(index, 1);
+			
+			for(var stud in sub_3.enrolledStudents) {
+				if(sub_3.enrolledStudents[stud].id == delId) {
+					index = stud;
+					//delete sub_3.enrolledStudents[stud];
+				}
+			}
+			sub_3.enrolledStudents.splice(index, 1);
+			
+			for(var stud in sub_4.enrolledStudents) {
+				if(sub_4.enrolledStudents[stud].id == delId) {
+					index = stud;
+					//delete sub_4.enrolledStudents[stud];
+				}
+			}
+			sub_4.enrolledStudents.splice(index, 1);
+			
+			var result = {id: delId};
+			
+			writeFiles();
+			
+			res.writeHead(200, "{content-type: application/json}");
+			res.end(JSON.stringify(result));
+			
+		}, 1000);
+		
 		console.log("[INFO] Method: 'DELETE' path: /api/student/{id}");
 	} else {
 		res.writeHead(400);

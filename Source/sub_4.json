@@ -1,1 +1,19 @@
-{"subjectId":4,"subjectName":"Advanced Math Part 4","enrolledStudents":[{"id":123,"score":401},{"id":124,"score":402},{"id":125,"score":403}]}
+{
+"subjectId": 4,
+"subjectName": "Advanced Math Part 4",
+"enrolledStudents": 
+	[
+		{
+			"id": 123,
+			"score": 401
+		},
+		{
+			"id": 124,
+			"score": 402
+		},
+		{
+			"id": 125,
+			"score": 403
+		}
+	]
+}
